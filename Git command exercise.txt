@@ -1,0 +1,271 @@
+theia@theia-sutathippati:/home/project$ mkdir myrepo
+theia@theia-sutathippati:/home/project$ myrepo
+bash: myrepo: command not found
+theia@theia-sutathippati:/home/project$ get init
+bash: get: command not found
+theia@theia-sutathippati:/home/project$ cd myrepo
+theia@theia-sutathippati:/home/project/myrepo$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint:   git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint:   git branch -m <name>
+Initialized empty Git repository in /home/project/myrepo/.git/
+theia@theia-sutathippati:/home/project/myrepo$ ls -la .git
+total 40
+drwxr-sr-x 7 theia users 4096 Jun 11 09:16 .
+drwxr-sr-x 3 theia users 4096 Jun 11 09:16 ..
+-rw-r--r-- 1 theia users   23 Jun 11 09:16 HEAD
+drwxr-sr-x 2 theia users 4096 Jun 11 09:16 branches
+-rw-r--r-- 1 theia users   92 Jun 11 09:16 config
+-rw-r--r-- 1 theia users   73 Jun 11 09:16 description
+drwxr-sr-x 2 theia users 4096 Jun 11 09:16 hooks
+drwxr-sr-x 2 theia users 4096 Jun 11 09:16 info
+drwxr-sr-x 4 theia users 4096 Jun 11 09:16 objects
+drwxr-sr-x 4 theia users 4096 Jun 11 09:16 refs
+theia@theia-sutathippati:/home/project/myrepo$ touch newfile
+theia@theia-sutathippati:/home/project/myrepo$ git add newfile
+theia@theia-sutathippati:/home/project/myrepo$ git add newfile
+theia@theia-sutathippati:/home/project/myrepo$ git config --global user.email "sutathippatience1.gmail.com"
+theia@theia-sutathippati:/home/project/myrepo$ git config --global user.name "Sutathip003"
+theia@theia-sutathippati:/home/project/myrepo$ git commit -m "added newfile" 
+[master (root-commit) 2fe667c] added newfile
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 newfile
+theia@theia-sutathippati:/home/project/myrepo$ git branch my1stbranch
+theia@theia-sutathippati:/home/project/myrepo$ git branch
+* master
+  my1stbranch
+theia@theia-sutathippati:/home/project/myrepo$ git checkout my1stbranch
+Switched to branch 'my1stbranch'
+theia@theia-sutathippati:/home/project/myrepo$ git branch
+  master
+* my1stbranch
+theia@theia-sutathippati:/home/project/myrepo$ git checkout -b my1stbranch
+fatal: A branch named 'my1stbranch' already exists.
+theia@theia-sutathippati:/home/project/myrepo$ echo "Here is some text in my newfile." >> newfile
+theia@theia-sutathippati:/home/project/myrepo$ cat newfile
+Here is some text in my newfile.
+theia@theia-sutathippati:/home/project/myrepo$ touch readme.md
+theia@theia-sutathippati:/home/project/myrepo$ git add readme.md
+theia@theia-sutathippati:/home/project/myrepo$ git status
+On branch my1stbranch
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   readme.md
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   newfile
+
+theia@theia-sutathippati:/home/project/myrepo$ git add*
+git: 'add*' is not a git command. See 'git --help'.
+
+The most similar command is
+        add
+theia@theia-sutathippati:/home/project/myrepo$ git add *
+theia@theia-sutathippati:/home/project/myrepo$ git status
+On branch my1stbranch
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   newfile
+        new file:   readme.md
+
+theia@theia-sutathippati:/home/project/myrepo$ git commit -m "added readme.md modified newfile"
+[my1stbranch 21478f7] added readme.md modified newfile
+ 2 files changed, 1 insertion(+)
+ create mode 100644 readme.md
+theia@theia-sutathippati:/home/project/myrepo$ cat newfile
+Here is some text in my newfile.
+theia@theia-sutathippati:/home/project/myrepo$ git log
+commit 21478f73804cd7254259aa45910201bc0bb179ec (HEAD -> my1stbranch)
+Author: Sutathip003 <sutathippatience1.gmail.com>
+Date:   Wed Jun 11 09:51:40 2025 -0400
+
+    added readme.md modified newfile
+
+commit 2fe667cde71a4bbbc558d520232dbc060e52d4c3 (master)
+Author: Sutathip003 <sutathippatience1.gmail.com>
+Date:   Wed Jun 11 09:31:06 2025 -0400
+
+    added newfile
+theia@theia-sutathippati:/home/project/myrepo$ git revert HEAD --no-edit
+[my1stbranch f7b68dc] Revert "added readme.md modified newfile"
+ Date: Wed Jun 11 09:54:54 2025 -0400
+ 2 files changed, 1 deletion(-)
+ delete mode 100644 readme.md
+theia@theia-sutathippati:/home/project/myrepo$ touch goodlife
+theia@theia-sutathippati:/home/project/myrepo$ git add goodlife
+theia@theia-sutathippati:/home/project/myrepo$ git commit -m "add goodfile"
+[my1stbranch 9ea2ffa] add goodfile
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 goodlife
+theia@theia-sutathippati:/home/project/myrepo$ git log
+commit 9ea2ffa7d0469eff23f23b1e16e4648cda7ba6c1 (HEAD -> my1stbranch)
+Author: Sutathip003 <sutathippatience1.gmail.com>
+Date:   Wed Jun 11 09:59:22 2025 -0400
+
+    add goodfile
+
+commit f7b68dc24c539e7ee49f0c84d307a44566421e49
+Author: Sutathip003 <sutathippatience1.gmail.com>
+Date:   Wed Jun 11 09:54:54 2025 -0400
+
+    Revert "added readme.md modified newfile"
+    
+    This reverts commit 21478f73804cd7254259aa45910201bc0bb179ec.
+
+theia@theia-sutathippati:/home/project/myrepo$ git checkout master
+Switched to branch 'master'
+theia@theia-sutathippati:/home/project/myrepo$ git merge my1stbranch
+Updating 2fe667c..9ea2ffa
+Fast-forward
+ goodlife | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 goodlife
+theia@theia-sutathippati:/home/project/myrepo$ git log
+commit 9ea2ffa7d0469eff23f23b1e16e4648cda7ba6c1 (HEAD -> master, my1stbranch)
+Author: Sutathip003 <sutathippatience1.gmail.com>
+Date:   Wed Jun 11 09:59:22 2025 -0400
+
+    add goodfile
+
+commit f7b68dc24c539e7ee49f0c84d307a44566421e49
+Author: Sutathip003 <sutathippatience1.gmail.com>
+Date:   Wed Jun 11 09:54:54 2025 -0400
+
+    Revert "added readme.md modified newfile"
+    
+    This reverts commit 21478f73804cd7254259aa45910201bc0bb179ec.
+
+theia@theia-sutathippati:/home/project/myrepo$ git branch -d my1stbranch
+Deleted branch my1stbranch (was 9ea2ffa).
+theia@theia-sutathippati:/home/project/myrepo$ mkdir newdir
+theia@theia-sutathippati:/home/project/myrepo$ cd newdir
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint: 
+hint:   git config --global init.defaultBranch <name>
+hint: 
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint: 
+hint:   git branch -m <name>
+Initialized empty Git repository in /home/project/myrepo/newdir/.git/
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git log
+fatal: your current branch 'master' does not have any commits yet
+theia@theia-sutathippati:/home/project/myrepo/newdir$  git branch newbranch
+fatal: Not a valid object name: 'master'.
+theia@theia-sutathippati:/home/project/myrepo/newdir$ ls -la .git
+total 40
+drwxr-sr-x 7 theia users 4096 Jun 11 10:11 .
+drwxr-sr-x 3 theia users 4096 Jun 11 10:11 ..
+-rw-r--r-- 1 theia users   23 Jun 11 10:11 HEAD
+drwxr-sr-x 2 theia users 4096 Jun 11 10:11 branches
+-rw-r--r-- 1 theia users   92 Jun 11 10:11 config
+-rw-r--r-- 1 theia users   73 Jun 11 10:11 description
+drwxr-sr-x 2 theia users 4096 Jun 11 10:11 hooks
+drwxr-sr-x 2 theia users 4096 Jun 11 10:11 info
+drwxr-sr-x 4 theia users 4096 Jun 11 10:11 objects
+drwxr-sr-x 4 theia users 4096 Jun 11 10:11 refs
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git branch newbranch
+fatal: Not a valid object name: 'master'.
+theia@theia-sutathippati:/home/project/myrepo/newdir$ touch masterFile
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git add masterFile
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git config --global user.email "sutathippatience1.gmail.com"
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git config --global user.name "Sutathip003"
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git commit -m "add masterFile"
+[master (root-commit) e43b775] add masterFile
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 masterFile
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git branch newbranch
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git branch
+* master
+  newbranch
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git chechout newbranch
+git: 'chechout' is not a git command. See 'git --help'.
+
+The most similar command is
+        checkout
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git checkout newbrnch
+error: pathspec 'newbrnch' did not match any file(s) known to git
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git checkout newbranch
+Switched to branch 'newbranch'
+theia@theia-sutathippati:/home/project/myrepo/newdir$ touch newbranchfile
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git add newbranchfile
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git commit -m "add newbranch"        
+[newbranch 92efef6] add newbranch
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 newbranchfile
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git status
+On branch newbranch
+nothing to commit, working tree clean
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git revert HEAD --no-edit
+[newbranch 9496807] Revert "add newbranch"
+ Date: Wed Jun 11 10:28:02 2025 -0400
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ delete mode 100644 newbranchfile
+theia@theia-sutathippati:/home/project/myrepo/newdir$ touch newgoodlife 
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git add newgoodlife
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git commit -m "add newgoodlife"
+[newbranch 4451482] add newgoodlife
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 newgoodlife
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git log
+commit 44514820905f87c4b17a6fc13e50061a23403518 (HEAD -> newbranch)
+Author: Sutathip003 <sutathippatience1.gmail.com>
+Date:   Wed Jun 11 10:30:18 2025 -0400
+
+    add newgoodlife
+
+commit 9496807c9e3d813157d6c89e6069756f35521f25
+Author: Sutathip003 <sutathippatience1.gmail.com>
+Date:   Wed Jun 11 10:28:02 2025 -0400
+
+    Revert "add newbranch"
+    
+    This reverts commit 92efef6a5f63e74f7aba40d2563989f2219d0c13.
+
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git checkout master
+Switched to branch 'master'
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git marge newbranch
+git: 'marge' is not a git command. See 'git --help'.
+
+The most similar command is
+        merge
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git log
+commit e43b775aee2831b6e2127529dbf036e5041c5aaa (HEAD -> master)
+Author: Sutathip003 <sutathippatience1.gmail.com>
+Date:   Wed Jun 11 10:19:47 2025 -0400
+
+    add masterFile
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git merge newbranch
+Updating e43b775..4451482
+Fast-forward
+ newgoodlife | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 newgoodlife
+theia@theia-sutathippati:/home/project/myrepo/newdir$ git log
+commit 44514820905f87c4b17a6fc13e50061a23403518 (HEAD -> master, newbranch)
+Author: Sutathip003 <sutathippatience1.gmail.com>
+Date:   Wed Jun 11 10:30:18 2025 -0400
+
+    add newgoodlife
+
+commit 9496807c9e3d813157d6c89e6069756f35521f25
+Author: Sutathip003 <sutathippatience1.gmail.com>
+Date:   Wed Jun 11 10:28:02 2025 -0400
+
+    Revert "add newbranch"
+    
+    This reverts commit 92efef6a5f63e74f7aba40d2563989f2219d0c13.
+
+:
